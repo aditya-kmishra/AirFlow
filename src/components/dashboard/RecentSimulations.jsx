@@ -16,10 +16,10 @@ const scenarioColors = {
 
 export default function RecentSimulations({ simulations, isLoading }) {
   return (
-    <Card className="border-none shadow-xl bg-white/80 backdrop-blur-sm">
+    <Card className="border border-border bg-card shadow-sm rounded-md">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-slate-900">Recent Simulations</CardTitle>
-        <p className="text-sm text-slate-600">Latest simulation runs and results</p>
+        <CardTitle className="text-xl font-serif font-bold text-foreground">Recent Simulations</CardTitle>
+        <p className="text-sm text-muted-foreground">Latest simulation runs and results</p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
@@ -41,19 +41,19 @@ export default function RecentSimulations({ simulations, isLoading }) {
             simulations.slice(0, 5).map((sim) => (
               <div 
                 key={sim.id} 
-                className="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 group"
+                className="flex flex-col md:flex-row items-start md:items-center gap-4 p-4 rounded-md border border-border hover:border-primary/50 transition-colors duration-300 group"
               >
                 <div className="flex items-center gap-4 flex-1">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-500/30 group-hover:scale-110 transition-transform duration-300">
-                    <span className="text-2xl font-bold text-white">{sim.optimization_score || 0}</span>
+                  <div className="w-16 h-16 rounded-md bg-secondary flex items-center justify-center">
+                    <span className="text-2xl font-serif font-bold text-secondary-foreground">{sim.optimization_score || 0}</span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-semibold text-slate-900 mb-1">{sim.name}</h4>
+                    <h4 className="font-medium text-foreground mb-1">{sim.name}</h4>
                     <div className="flex flex-wrap items-center gap-2">
-                      <Badge className={`${scenarioColors[sim.scenario_type]} border`}>
+                      <Badge className="bg-muted text-muted-foreground border-transparent hover:bg-muted font-normal rounded-sm">
                         {sim.scenario_type.replace(/_/g, ' ')}
                       </Badge>
-                      <span className="text-xs text-slate-500">
+                      <span className="text-xs text-muted-foreground">
                         {format(new Date(sim.created_date), 'MMM d, yyyy h:mm a')}
                       </span>
                     </div>
@@ -62,16 +62,16 @@ export default function RecentSimulations({ simulations, isLoading }) {
                 
                 <div className="flex gap-6 text-sm">
                   <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-blue-500" />
-                    <span className="text-slate-600">{sim.avg_waiting_time?.toFixed(1) || 0} min</span>
+                    <Clock className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-foreground">{sim.avg_waiting_time?.toFixed(1) || 0} min</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-cyan-500" />
-                    <span className="text-slate-600">{sim.passenger_count || 0}</span>
+                    <Users className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-foreground">{sim.passenger_count || 0}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <TrendingUp className="w-4 h-4 text-green-500" />
-                    <span className="text-slate-600">{sim.throughput || 0}/hr</span>
+                    <TrendingUp className="w-4 h-4 text-muted-foreground" />
+                    <span className="text-foreground">{sim.throughput || 0}/hr</span>
                   </div>
                 </div>
               </div>

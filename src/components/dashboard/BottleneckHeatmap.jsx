@@ -20,10 +20,10 @@ export default function BottleneckHeatmap({ simulations }) {
     .slice(0, 5);
 
   return (
-    <Card className="border-none shadow-xl bg-white/80 backdrop-blur-sm">
+    <Card className="border border-border bg-card shadow-sm rounded-md">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-slate-900">Bottleneck Analysis</CardTitle>
-        <p className="text-sm text-slate-600">Most frequently congested areas</p>
+        <CardTitle className="text-xl font-serif font-bold text-foreground">Bottleneck Analysis</CardTitle>
+        <p className="text-sm text-muted-foreground">Most frequently congested areas</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
@@ -41,15 +41,9 @@ export default function BottleneckHeatmap({ simulations }) {
             />
             <Bar 
               dataKey="count" 
-              fill="url(#colorGradient)"
-              radius={[0, 8, 8, 0]}
+              fill="#D97757"
+              radius={[0, 4, 4, 0]}
             />
-            <defs>
-              <linearGradient id="colorGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#F59E0B" />
-                <stop offset="100%" stopColor="#EF4444" />
-              </linearGradient>
-            </defs>
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

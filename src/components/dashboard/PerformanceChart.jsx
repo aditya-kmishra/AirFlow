@@ -12,10 +12,10 @@ export default function PerformanceChart({ simulations }) {
   }));
 
   return (
-    <Card className="border-none shadow-xl bg-white/80 backdrop-blur-sm">
+    <Card className="border border-border bg-card shadow-sm rounded-md">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-slate-900">Performance Trends</CardTitle>
-        <p className="text-sm text-slate-600">Last 10 simulation runs</p>
+        <CardTitle className="text-xl font-serif font-bold text-foreground">Performance Trends</CardTitle>
+        <p className="text-sm text-muted-foreground">Last 10 simulation runs</p>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>

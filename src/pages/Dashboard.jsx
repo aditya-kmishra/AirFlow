@@ -41,11 +41,11 @@ export default function Dashboard() {
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <div>
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">Airport Operations Dashboard</h1>
-            <p className="text-slate-600">Agent-based modeling & hybrid optimization for passenger flow</p>
+            <h1 className="text-4xl font-serif font-bold text-foreground mb-2">Airport Operations Dashboard</h1>
+            <p className="text-muted-foreground">Agent-based modeling & hybrid optimization for passenger flow</p>
           </div>
           <Link to={createPageUrl("Simulation")}>
-            <Button className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 shadow-lg shadow-blue-500/30">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-md shadow-sm">
               <ArrowUpRight className="w-4 h-4 mr-2" />
               Run New Simulation
             </Button>

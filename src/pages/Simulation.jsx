@@ -86,15 +86,15 @@ export default function Simulation() {
     <div className="p-6 lg:p-8">
       <div className="max-w-7xl mx-auto space-y-8">
         <div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Live Simulation</h1>
-          <p className="text-slate-600">Configure and run agent-based passenger flow simulations</p>
+          <h1 className="text-4xl font-serif font-bold text-foreground mb-2">Live Simulation</h1>
+          <p className="text-muted-foreground">Configure and run agent-based passenger flow simulations</p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Configuration Panel */}
-          <Card className="lg:col-span-1 border-none shadow-xl bg-white/80 backdrop-blur-sm">
+          <Card className="lg:col-span-1 border border-border bg-card shadow-sm rounded-md">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 font-serif">
                 <Settings className="w-5 h-5" />
                 Simulation Parameters
               </CardTitle>
@@ -182,7 +182,7 @@ export default function Simulation() {
               <Button
                 onClick={runSimulation}
                 disabled={isRunning}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 shadow-lg shadow-blue-500/30"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm rounded-md"
               >
                 {isRunning ? (
                   <>

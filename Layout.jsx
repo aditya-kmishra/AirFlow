@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { LayoutDashboard, Play, BarChart3, GitCompare, Plane } from "lucide-react";
+import { LayoutDashboard, Play, BarChart3, GitCompare, Plane, Bot } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -36,6 +36,11 @@ const navigationItems = [
     url: createPageUrl("Scenarios"),
     icon: GitCompare,
   },
+  {
+    title: "AI Assistant",
+    url: createPageUrl("AiAssistant"),
+    icon: Bot,
+  },
 ];
 
 export default function Layout({ children, currentPageName }) {
@@ -52,16 +57,16 @@ export default function Layout({ children, currentPageName }) {
           --color-accent: #06B6D4;
         }
       `}</style>
-      <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
-        <Sidebar className="border-r border-slate-200/80 bg-white/80 backdrop-blur-xl">
-          <SidebarHeader className="border-b border-slate-200/80 p-6">
+      <div className="min-h-screen flex w-full bg-background font-sans text-foreground">
+        <Sidebar className="border-r border-border bg-card">
+          <SidebarHeader className="border-b border-border p-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                <Plane className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
+                <Plane className="w-6 h-6 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="font-bold text-slate-900 text-lg">AeroFlow</h2>
-                <p className="text-xs text-slate-500">Airport Optimization</p>
+                <h2 className="font-serif font-bold text-foreground text-xl">AeroFlow</h2>
+                <p className="text-xs text-muted-foreground uppercase tracking-widest mt-0.5">Optimization</p>
               </div>
             </div>
           </SidebarHeader>
@@ -74,15 +79,15 @@ export default function Layout({ children, currentPageName }) {
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton 
                         asChild 
-                        className={`hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 rounded-xl ${
+                        className={`hover:bg-accent hover:text-accent-foreground transition-all duration-200 rounded-md ${
                           location.pathname === item.url 
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' 
-                            : 'text-slate-600'
+                            ? 'bg-secondary text-secondary-foreground font-medium' 
+                            : 'text-muted-foreground'
                         }`}
                       >
                         <Link to={item.url} className="flex items-center gap-3 px-4 py-3">
-                          <item.icon className="w-5 h-5" />
-                          <span className="font-medium">{item.title}</span>
+                          <item.icon className="w-4 h-4" />
+                          <span className="text-sm">{item.title}</span>
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -94,10 +99,10 @@ export default function Layout({ children, currentPageName }) {
         </Sidebar>
 
         <main className="flex-1 flex flex-col">
-          <header className="bg-white/80 backdrop-blur-xl border-b border-slate-200/80 px-6 py-4 lg:hidden">
+          <header className="bg-card border-b border-border px-6 py-4 lg:hidden">
             <div className="flex items-center gap-4">
-              <SidebarTrigger className="hover:bg-slate-100 p-2 rounded-lg transition-colors" />
-              <h1 className="text-xl font-bold text-slate-900">AeroFlow</h1>
+              <SidebarTrigger className="hover:bg-muted p-2 rounded-md transition-colors" />
+              <h1 className="text-xl font-serif font-bold text-foreground">AeroFlow</h1>
             </div>
           </header>
 
