@@ -1,0 +1,92 @@
+{
+  "name": "Simulation",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the simulation run"
+    },
+    "scenario_type": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "optimized_security",
+        "optimized_checkin",
+        "hybrid_all",
+        "peak_hours",
+        "custom"
+      ],
+      "description": "Type of simulation scenario"
+    },
+    "passenger_count": {
+      "type": "number",
+      "description": "Total number of passengers in simulation"
+    },
+    "avg_waiting_time": {
+      "type": "number",
+      "description": "Average waiting time in minutes"
+    },
+    "security_wait": {
+      "type": "number",
+      "description": "Average security checkpoint wait in minutes"
+    },
+    "checkin_wait": {
+      "type": "number",
+      "description": "Average check-in wait in minutes"
+    },
+    "boarding_wait": {
+      "type": "number",
+      "description": "Average boarding wait in minutes"
+    },
+    "throughput": {
+      "type": "number",
+      "description": "Passengers processed per hour"
+    },
+    "bottlenecks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Identified bottleneck areas"
+    },
+    "agent_parameters": {
+      "type": "object",
+      "properties": {
+        "walking_speed": {
+          "type": "number"
+        },
+        "patience_level": {
+          "type": "number"
+        },
+        "group_size": {
+          "type": "number"
+        }
+      }
+    },
+    "optimization_score": {
+      "type": "number",
+      "description": "Overall efficiency score (0-100)"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "AI-generated optimization recommendations"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "completed",
+        "failed"
+      ],
+      "default": "completed"
+    }
+  },
+  "required": [
+    "name",
+    "scenario_type",
+    "passenger_count"
+  ]
+}
